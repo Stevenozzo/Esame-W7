@@ -59,15 +59,19 @@ const searchProducts = () => {
       productsContainer.innerHTML = ""; // Pulisce il contenuto prima di aggiungere nuovi prodotti
 
       data.forEach((product) => {
-        const productCard = `<div class="product-card">
-                              <h3>${product.name}</h3>
-                              <p>${product.description}</p>
-                              <p>Marca: ${product.brand}</p> <!-- Aggiunto -->
-                              <p>Prezzo: ${product.price}</p>
-                              <img src="${product.imageUrl}" alt="${product.name}" />
-                              <button onclick="editProduct('${product._id}')">Modifica</button>
-                              <button onclick="deleteProduct('${product._id}')">Cancella</button>
-                            </div>`;
+        const productCard = `
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
+              <div class="card-body">
+                <h5 class="card-title">${product.name}</h5>
+                <p class="card-text">${product.description}</p>
+                <p class="card-text">Prezzo: €${product.price}</p>
+                <button class="btn btn-primary" onclick="editProduct('${product._id}')">Modifica</button>
+                <button class="btn btn-danger" onclick="deleteProduct('${product._id}')">Cancella</button>
+              </div>
+            </div>
+          </div>`;
         productsContainer.innerHTML += productCard;
       });
     })
