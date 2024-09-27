@@ -20,7 +20,7 @@ const loadProducts = () => {
     .then((data) => {
       console.log("Prodotti ricevuti:", data); // Log per controllare i dati
       const productsContainer = document.getElementById("products-container");
-      productsContainer.innerHTML = ""; // Pulisci il contenuto prima di aggiungere nuovi prodotti
+      productsContainer.innerHTML = ""; // Pulisce il contenuto prima di aggiungere nuovi prodotti
 
       data.forEach((product) => {
         const productCard = `
